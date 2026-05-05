@@ -6,7 +6,7 @@
   <title>UMIKO kotori</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,7 +14,7 @@
       --white: #f5f0ea;
       --black: #0a0a0a;
       --accent: #c9b99a;
-      --gold: #e8c84a;
+      --gold: #d4a843;
     }
 
     html { scroll-behavior: smooth; }
@@ -69,45 +69,53 @@
       z-index: 1;
     }
 
+    /* Logo centered in hero, fades in gold then disappears */
     .hero-logo {
       position: relative;
       z-index: 2;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      gap: 2rem;
+      justify-content: center;
     }
 
-    /* Logo: fades in gold, stays, then fades out */
     .hero-logo img {
-      width: clamp(140px, 22vw, 280px);
-      /* Apply gold tint via sepia + saturate + hue-rotate */
-      filter: brightness(0) saturate(100%) invert(80%) sepia(60%) saturate(400%) hue-rotate(5deg) brightness(110%);
+      width: clamp(200px, 35vw, 400px);
+      filter: brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(500%) hue-rotate(2deg) brightness(95%);
       opacity: 0;
-      animation: logoInOut 5s ease forwards;
-      animation-delay: 0.8s;
+      animation: logoInOut 3.5s ease forwards;
+      animation-delay: 0.5s;
+    }
+
+    /* Scroll hint sits BELOW the video, not on it */
+    .scroll-hint-wrap {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      opacity: 0;
+      animation: fadeUp 1s ease 4.5s forwards;
     }
 
     .scroll-hint {
-      font-size: 0.58rem;
-      letter-spacing: 0.4em;
+      font-size: 0.55rem;
+      letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--white);
-      opacity: 0;
-      animation: fadeUp 1s ease 1.5s forwards;
+      opacity: 0.5;
     }
 
-    /* Fade in → hold → fade out */
+    /* Faster: in over 0.4s, hold until 60%, out by 100% */
     @keyframes logoInOut {
-      0%   { opacity: 0;    transform: translateY(10px); }
-      15%  { opacity: 0.95; transform: translateY(0); }
-      60%  { opacity: 0.95; transform: translateY(0); }
-      100% { opacity: 0;    transform: translateY(-6px); }
+      0%   { opacity: 0;    transform: scale(0.97); }
+      12%  { opacity: 1;    transform: scale(1); }
+      60%  { opacity: 1;    transform: scale(1); }
+      100% { opacity: 0;    transform: scale(1.02); }
     }
 
     @keyframes fadeUp {
-      0%   { opacity: 0; transform: translateY(8px); }
-      100% { opacity: 0.55; transform: translateY(0); }
+      0%   { opacity: 0; transform: translateX(-50%) translateY(8px); }
+      100% { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
     /* ── SECTIONS ── */
@@ -119,10 +127,9 @@
     }
 
     .section-label {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 0.65rem;
-      font-weight: 800;
-      letter-spacing: 0.5em;
+      font-family: 'Zen Antique', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.55em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 3rem;
@@ -153,10 +160,9 @@
     .single-card:hover img { filter: grayscale(0%); }
 
     .single-title {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-      font-weight: 800;
-      letter-spacing: 0.15em;
+      font-family: 'Zen Antique', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      letter-spacing: 0.2em;
       transition: color 0.3s ease;
     }
 
@@ -165,10 +171,9 @@
     }
 
     .single-type {
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 0.6rem;
-      font-weight: 700;
-      letter-spacing: 0.4em;
+      font-family: 'Zen Antique', serif;
+      font-size: 0.62rem;
+      letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--accent);
       margin-top: -0.6rem;
@@ -177,11 +182,10 @@
     .listen-btn {
       display: inline-block;
       margin-top: 0.2rem;
-      padding: 0.6rem 2rem;
+      padding: 0.65rem 2.2rem;
       border: 1px solid var(--accent);
-      font-family: 'Shippori Mincho B1', serif;
-      font-size: 0.6rem;
-      font-weight: 700;
+      font-family: 'Zen Antique', serif;
+      font-size: 0.62rem;
       letter-spacing: 0.35em;
       text-transform: uppercase;
       color: var(--accent);
@@ -260,10 +264,9 @@
     }
 
     footer p {
-      font-family: 'Shippori Mincho B1', serif;
+      font-family: 'Zen Antique', serif;
       font-size: 0.55rem;
-      font-weight: 700;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       color: var(--accent);
       opacity: 0.45;
       text-transform: uppercase;
@@ -284,8 +287,14 @@
       ></iframe>
     </div>
     <div class="hero-overlay"></div>
+
+    <!-- Logo centered over video -->
     <div class="hero-logo">
       <img src="logo.png" alt="UMIKO kotori" />
+    </div>
+
+    <!-- Scroll hint pinned to bottom of hero -->
+    <div class="scroll-hint-wrap">
       <span class="scroll-hint">scroll</span>
     </div>
   </div>
