@@ -6,7 +6,7 @@
   <title>UMIKO kotori</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -14,7 +14,7 @@
       --white: #f5f0ea;
       --black: #0a0a0a;
       --accent: #c9b99a;
-      --gold: #d4a843;
+      --neon: #E8FF00;
     }
 
     html { scroll-behavior: smooth; }
@@ -48,10 +48,10 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 56.25vh;
+      width: 177.78vh;
       height: 100vh;
       min-width: 100%;
-      min-height: 177.78vw;
+      min-height: 56.25vw;
       transform: translate(-50%, -50%);
       pointer-events: none;
       border: none;
@@ -62,31 +62,14 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(10,10,10,0.25) 0%,
-        rgba(10,10,10,0.05) 40%,
-        rgba(10,10,10,0.7) 100%
+        rgba(10,10,10,0.1) 0%,
+        rgba(10,10,10,0.0) 40%,
+        rgba(10,10,10,0.65) 100%
       );
       z-index: 1;
     }
 
-    /* Logo centered in hero, fades in gold then disappears */
-    .hero-logo {
-      position: relative;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .hero-logo img {
-      width: clamp(200px, 35vw, 400px);
-      filter: brightness(0) saturate(100%) invert(72%) sepia(55%) saturate(500%) hue-rotate(2deg) brightness(95%);
-      opacity: 0;
-      animation: logoInOut 3.5s ease forwards;
-      animation-delay: 0.5s;
-    }
-
-    /* Scroll hint sits BELOW the video, not on it */
+    /* Scroll hint pinned to bottom */
     .scroll-hint-wrap {
       position: absolute;
       bottom: 2.5rem;
@@ -94,23 +77,16 @@
       transform: translateX(-50%);
       z-index: 2;
       opacity: 0;
-      animation: fadeUp 1s ease 4.5s forwards;
+      animation: fadeUp 1s ease 1.5s forwards;
     }
 
     .scroll-hint {
-      font-size: 0.55rem;
-      letter-spacing: 0.45em;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.55em;
       text-transform: uppercase;
       color: var(--white);
-      opacity: 0.5;
-    }
-
-    /* Faster: in over 0.4s, hold until 60%, out by 100% */
-    @keyframes logoInOut {
-      0%   { opacity: 0;    transform: scale(0.97); }
-      12%  { opacity: 1;    transform: scale(1); }
-      60%  { opacity: 1;    transform: scale(1); }
-      100% { opacity: 0;    transform: scale(1.02); }
+      opacity: 0.45;
     }
 
     @keyframes fadeUp {
@@ -118,7 +94,7 @@
       100% { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
-    /* ── SECTIONS ── */
+    /* ── SINGLE SECTION ── */
     section {
       padding: 6rem 2rem;
       max-width: 900px;
@@ -127,9 +103,9 @@
     }
 
     .section-label {
-      font-family: 'Zen Antique', serif;
+      font-family: 'Archivo Black', sans-serif;
       font-size: 0.7rem;
-      letter-spacing: 0.55em;
+      letter-spacing: 0.6em;
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 3rem;
@@ -140,7 +116,7 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      gap: 1.4rem;
+      gap: 1.2rem;
       text-decoration: none;
       color: var(--white);
       transition: transform 0.4s ease;
@@ -149,54 +125,26 @@
     .single-card:hover { transform: translateY(-6px); }
 
     .single-card img {
-      width: clamp(180px, 32vw, 280px);
+      width: clamp(200px, 36vw, 320px);
       aspect-ratio: 1;
       object-fit: cover;
       display: block;
-      filter: grayscale(15%);
+      filter: grayscale(10%);
       transition: filter 0.4s ease;
     }
 
     .single-card:hover img { filter: grayscale(0%); }
 
     .single-title {
-      font-family: 'Zen Antique', serif;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(2rem, 6vw, 3.8rem);
       letter-spacing: 0.2em;
       transition: color 0.3s ease;
+      text-transform: uppercase;
     }
 
     .single-card:hover .single-title {
-      color: var(--gold);
-    }
-
-    .single-type {
-      font-family: 'Zen Antique', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-top: -0.6rem;
-    }
-
-    .listen-btn {
-      display: inline-block;
-      margin-top: 0.2rem;
-      padding: 0.65rem 2.2rem;
-      border: 1px solid var(--accent);
-      font-family: 'Zen Antique', serif;
-      font-size: 0.62rem;
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: var(--accent);
-      text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .single-card:hover .listen-btn {
-      background: var(--gold);
-      color: var(--black);
-      border-color: var(--gold);
+      color: var(--neon);
     }
 
     /* ── DIVIDER ── */
@@ -214,8 +162,13 @@
       text-align: center;
     }
 
-    .socials-section .section-label {
-      margin-bottom: 2rem;
+    .socials-label {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2.5rem;
     }
 
     .social-icons {
@@ -238,7 +191,7 @@
 
     .social-icons a:hover {
       opacity: 1;
-      color: var(--gold);
+      color: var(--neon);
       transform: translateY(-3px);
     }
 
@@ -264,22 +217,22 @@
     }
 
     footer p {
-      font-family: 'Zen Antique', serif;
-      font-size: 0.55rem;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.5rem;
       letter-spacing: 0.3em;
       color: var(--accent);
-      opacity: 0.45;
+      opacity: 0.4;
       text-transform: uppercase;
     }
   </style>
 </head>
 <body>
 
-  <!-- ── HERO VIDEO ── -->
+  <!-- ── HERO VIDEO (no logo, video has logo integrated) ── -->
   <div class="hero">
     <div class="hero-video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/UAV0ZHiX6RQ?autoplay=1&mute=1&loop=1&playlist=UAV0ZHiX6RQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+        src="https://www.youtube.com/embed/zr4MpNvbcYI?autoplay=1&mute=1&loop=1&playlist=zr4MpNvbcYI&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
@@ -287,13 +240,6 @@
       ></iframe>
     </div>
     <div class="hero-overlay"></div>
-
-    <!-- Logo centered over video -->
-    <div class="hero-logo">
-      <img src="logo.png" alt="UMIKO kotori" />
-    </div>
-
-    <!-- Scroll hint pinned to bottom of hero -->
     <div class="scroll-hint-wrap">
       <span class="scroll-hint">scroll</span>
     </div>
@@ -303,10 +249,8 @@
   <section>
     <p class="section-label">New Single</p>
     <a class="single-card" href="https://umikokotori.bandcamp.com/track/polite" target="_blank" rel="noopener">
-      <img src="polite - cover.png" alt="POLITE – New Single" />
+      <img src="polite - cover.png" alt="POLITE" />
       <span class="single-title">POLITE</span>
-      <span class="single-type">Single</span>
-      <span class="listen-btn">Listen</span>
     </a>
   </section>
 
@@ -314,7 +258,7 @@
 
   <!-- ── SOCIAL ICONS ── -->
   <div class="socials-section">
-    <p class="section-label">Follow</p>
+    <p class="socials-label">signal / body / noise</p>
     <div class="social-icons">
 
       <!-- Spotify -->
@@ -355,6 +299,11 @@
       <!-- Tidal -->
       <a href="https://tidal.com/artist/24517136" target="_blank" rel="noopener" aria-label="Tidal">
         <svg viewBox="0 0 24 24"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004L19.992 12l4.004-4.004-4.004-4.004-3.98 3.98zM8.008 12l-4.004 4.004L8.008 20l4.004-4.004L8.008 12z"/></svg>
+      </a>
+
+      <!-- Email / Contact -->
+      <a href="mailto:umikokotori@gmail.com" aria-label="Contact">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </a>
 
     </div>
