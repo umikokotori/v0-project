@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UMIKO kotori</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600;700;800&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -13,6 +14,7 @@
       --white: #f5f0ea;
       --black: #0a0a0a;
       --accent: #c9b99a;
+      --gold: #e8c84a;
     }
 
     html { scroll-behavior: smooth; }
@@ -46,10 +48,11 @@
       position: absolute;
       top: 50%;
       left: 50%;
-      width: 177.78vh;
+      /* Shorts are vertical 9:16, scale to cover full screen */
+      width: 56.25vh;
       height: 100vh;
       min-width: 100%;
-      min-height: 56.25vw;
+      min-height: 177.78vw;
       transform: translate(-50%, -50%);
       pointer-events: none;
       border: none;
@@ -60,9 +63,9 @@
       inset: 0;
       background: linear-gradient(
         to bottom,
-        rgba(10,10,10,0.2) 0%,
-        rgba(10,10,10,0.0) 40%,
-        rgba(10,10,10,0.6) 100%
+        rgba(10,10,10,0.25) 0%,
+        rgba(10,10,10,0.05) 40%,
+        rgba(10,10,10,0.7) 100%
       );
       z-index: 1;
     }
@@ -111,7 +114,9 @@
     }
 
     .section-label {
-      font-size: 0.58rem;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 0.75rem;
+      font-weight: 600;
       letter-spacing: 0.45em;
       text-transform: uppercase;
       color: var(--accent);
@@ -143,14 +148,21 @@
     .single-card:hover img { filter: grayscale(0%); }
 
     .single-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1.8rem, 4vw, 2.6rem);
-      font-weight: 300;
-      letter-spacing: 0.1em;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      transition: color 0.3s ease;
+    }
+
+    .single-card:hover .single-title {
+      color: var(--gold);
     }
 
     .single-type {
-      font-size: 0.55rem;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 0.65rem;
+      font-weight: 500;
       letter-spacing: 0.38em;
       text-transform: uppercase;
       color: var(--accent);
@@ -162,19 +174,20 @@
       margin-top: 0.2rem;
       padding: 0.65rem 2.2rem;
       border: 1px solid var(--accent);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.55rem;
-      font-weight: 300;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 0.65rem;
+      font-weight: 500;
       letter-spacing: 0.32em;
       text-transform: uppercase;
       color: var(--accent);
       text-decoration: none;
-      transition: background 0.3s ease, color 0.3s ease;
+      transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
     }
 
-    .listen-btn:hover {
-      background: var(--accent);
+    .single-card:hover .listen-btn {
+      background: var(--gold);
       color: var(--black);
+      border-color: var(--gold);
     }
 
     /* ── DIVIDER ── */
@@ -210,12 +223,13 @@
       justify-content: center;
       color: var(--white);
       opacity: 0.45;
-      transition: opacity 0.3s ease, transform 0.3s ease;
+      transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
       text-decoration: none;
     }
 
     .social-icons a:hover {
       opacity: 1;
+      color: var(--gold);
       transform: translateY(-3px);
     }
 
@@ -241,7 +255,8 @@
     }
 
     footer p {
-      font-size: 0.5rem;
+      font-family: 'Shippori Mincho B1', serif;
+      font-size: 0.55rem;
       letter-spacing: 0.28em;
       color: var(--accent);
       opacity: 0.45;
@@ -255,7 +270,7 @@
   <div class="hero">
     <div class="hero-video-wrap">
       <iframe
-        src="https://www.youtube.com/embed/f8XrnA0Kmcc?autoplay=1&mute=1&loop=1&playlist=f8XrnA0Kmcc&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
+        src="https://www.youtube.com/embed/UAV0ZHiX6RQ?autoplay=1&mute=1&loop=1&playlist=UAV0ZHiX6RQ&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
         frameborder="0"
         allow="autoplay; fullscreen"
         allowfullscreen
@@ -264,7 +279,7 @@
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-logo">
-      <img src="https://www.umikokotori.com/images/logo.png" alt="UMIKO kotori" />
+      <img src="logo.png" alt="UMIKO kotori" />
       <span class="scroll-hint">scroll</span>
     </div>
   </div>
@@ -273,7 +288,7 @@
   <section>
     <p class="section-label">New Single</p>
     <a class="single-card" href="https://umikokotori.bandcamp.com/track/polite" target="_blank" rel="noopener">
-      <img src="https://www.umikokotori.com/images/polite-cover.png" alt="POLITE – New Single" />
+      <img src="polite - cover.png" alt="POLITE – New Single" />
       <span class="single-title">POLITE</span>
       <span class="single-type">Single</span>
       <span class="listen-btn">Listen</span>
@@ -332,7 +347,7 @@
 
   <!-- ── FOOTER ── -->
   <footer>
-    <img src="https://www.umikokotori.com/images/logo.png" alt="UMIKO kotori" />
+    <img src="logo.png" alt="UMIKO kotori" />
     <p>&copy; 2026 UMIKO kotori</p>
   </footer>
 
