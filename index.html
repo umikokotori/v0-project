@@ -113,8 +113,10 @@
 
     /* ── SINGLE CARD ── */
     .single-card {
-      display: inline-block;
-      position: relative;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
       text-decoration: none;
       color: var(--white);
       transition: transform 0.4s ease;
@@ -134,15 +136,13 @@
     .single-card:hover img { filter: grayscale(0%); }
 
     .single-title {
-      position: absolute;
-      bottom: 1.2rem;
-      left: 1.4rem;
       font-family: 'Archivo Black', sans-serif;
       font-size: clamp(1.5rem, 4.5vw, 3.2rem);
       letter-spacing: 0.2em;
       color: var(--white);
       transition: color 0.3s ease;
       text-transform: uppercase;
+      text-align: left;
     }
 
     .single-card:hover .single-title {
