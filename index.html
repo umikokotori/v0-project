@@ -196,8 +196,15 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 2.5rem;
-      cursor: default;
-      user-select: none;
+      display: inline-block;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .socials-label:hover {
+      opacity: 1;
+      color: var(--neon);
     }
 
     .social-icons {
@@ -300,7 +307,7 @@
 
   <!-- ── SOCIAL ICONS ── -->
   <div class="socials-section">
-    <p class="socials-label">signal / body / noise</p>
+    <a class="socials-label" href="https://umikokotori.substack.com" target="_blank" rel="noopener">signal / body / noise</a>
     <div class="social-icons">
 
       <!-- Spotify -->
