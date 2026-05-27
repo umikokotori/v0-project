@@ -69,7 +69,6 @@
       z-index: 1;
     }
 
-    /* Scroll hint pinned to bottom */
     .scroll-hint-wrap {
       position: absolute;
       bottom: 2.5rem;
@@ -94,7 +93,7 @@
       100% { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
-    /* ── SINGLE SECTION ── */
+    /* ── SINGLES SECTION ── */
     section {
       padding: 6rem 2rem;
       max-width: 900px;
@@ -111,9 +110,25 @@
       margin-bottom: 3rem;
     }
 
+    /* ── SINGLES GRID ── */
+    .singles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .singles-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+    }
+
     /* ── SINGLE CARD ── */
     .single-card {
-      display: inline-flex;
+      display: flex;
       flex-direction: column;
       align-items: flex-start;
       gap: 1.2rem;
@@ -125,7 +140,7 @@
     .single-card:hover { transform: translateY(-6px); }
 
     .single-card img {
-      width: clamp(280px, 62vw, 700px);
+      width: 100%;
       aspect-ratio: 1;
       object-fit: cover;
       display: block;
@@ -137,7 +152,7 @@
 
     .single-title {
       font-family: 'Archivo Black', sans-serif;
-      font-size: clamp(1.5rem, 4.5vw, 3.2rem);
+      font-size: clamp(1.2rem, 3.5vw, 2.4rem);
       letter-spacing: 0.2em;
       color: var(--white);
       transition: color 0.3s ease;
@@ -147,6 +162,16 @@
 
     .single-card:hover .single-title {
       color: var(--neon);
+    }
+
+    .single-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      font-weight: 300;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.6;
     }
 
     /* ── DIVIDER ── */
@@ -171,6 +196,8 @@
       text-transform: uppercase;
       color: var(--accent);
       margin-bottom: 2.5rem;
+      cursor: default;
+      user-select: none;
     }
 
     .social-icons {
@@ -230,7 +257,7 @@
 </head>
 <body>
 
-  <!-- ── HERO VIDEO (no logo, video has logo integrated) ── -->
+  <!-- ── HERO VIDEO ── -->
   <div class="hero">
     <div class="hero-video-wrap">
       <iframe
@@ -247,13 +274,26 @@
     </div>
   </div>
 
-  <!-- ── NEW SINGLE ── -->
+  <!-- ── SINGLES ── -->
   <section>
-    <p class="section-label">New Single</p>
-    <a class="single-card" href="https://umikokotori.bandcamp.com/track/polite" target="_blank" rel="noopener">
-      <img src="polite - cover.png" alt="POLITE" />
-      <span class="single-title">POLITE</span>
-    </a>
+    <p class="section-label">Singles</p>
+    <div class="singles-grid">
+
+      <!-- SWEETY — newest first -->
+      <a class="single-card" href="https://umikokotori.bandcamp.com/track/sweety" target="_blank" rel="noopener">
+        <img src="sweety - cover.png" alt="SWEETY" />
+        <span class="single-tag">New Single</span>
+        <span class="single-title">SWEETY</span>
+      </a>
+
+      <!-- POLITE -->
+      <a class="single-card" href="https://umikokotori.bandcamp.com/track/polite" target="_blank" rel="noopener">
+        <img src="polite - cover.png" alt="POLITE" />
+        <span class="single-tag">Single</span>
+        <span class="single-title">POLITE</span>
+      </a>
+
+    </div>
   </section>
 
   <div class="divider"></div>
@@ -303,14 +343,14 @@
         <svg viewBox="0 0 24 24"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996l4.004 4.004 4.004-4.004 4.004 4.004 4.004-4.004L19.992 12l4.004-4.004-4.004-4.004-3.98 3.98zM8.008 12l-4.004 4.004L8.008 20l4.004-4.004L8.008 12z"/></svg>
       </a>
 
-      <!-- Email / Contact -->
-      <a href="mailto:umikokotori@gmail.com" aria-label="Contact">
-        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      <!-- Substack -->
+      <a href="https://umikokotori.substack.com" target="_blank" rel="noopener" aria-label="Substack">
+        <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
       </a>
 
-      <!-- Substack -->
-      <a href="https://substack.com/@umikokotori" target="_blank" rel="noopener" aria-label="Substack">
-        <svg viewBox="0 0 24 24"><path d="M22.539 8.242H1.46V5.406h21.08v2.836zM1.46 10.812V24L12 18.11 22.54 24V10.812H1.46zM22.54 0H1.46v2.836h21.08V0z"/></svg>
+      <!-- Email -->
+      <a href="mailto:umikokotori@gmail.com" aria-label="Contact">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
       </a>
 
     </div>
