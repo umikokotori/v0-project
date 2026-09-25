@@ -27,6 +27,7 @@
       overflow-x: hidden;
     }
 
+    /* ── HERO ── */
     .hero {
       position: relative;
       width: 100%;
@@ -92,6 +93,77 @@
       100% { opacity: 1; transform: translateX(-50%) translateY(0); }
     }
 
+    /* ── ALBUM SECTION ── */
+    .album-section {
+      padding: 6rem 2rem 0;
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .album-tag {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    .album-title-link {
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .album-title {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: clamp(4rem, 14vw, 10rem);
+      letter-spacing: 0.15em;
+      color: var(--white);
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      line-height: 1;
+    }
+
+    .album-title-link:hover .album-title {
+      color: var(--neon);
+    }
+
+    .album-cover-link {
+      display: block;
+      width: clamp(280px, 65vw, 750px);
+      margin: 2rem auto 6rem;
+      text-decoration: none;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+
+    .album-cover-link:hover {
+      transform: translateY(-6px);
+      opacity: 0.9;
+    }
+
+    .album-cover-link img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 1px;
+      height: 60px;
+      background: var(--accent);
+      margin: 0 auto;
+      opacity: 0.3;
+    }
+
+    /* ── SINGLES SECTION ── */
     section {
       padding: 6rem 2rem;
       max-width: 900px;
@@ -170,14 +242,7 @@
       opacity: 0.6;
     }
 
-    .divider {
-      width: 1px;
-      height: 60px;
-      background: var(--accent);
-      margin: 0 auto;
-      opacity: 0.3;
-    }
-
+    /* ── SOCIALS ── */
     .socials-section {
       padding: 4rem 2rem 5rem;
       text-align: center;
@@ -231,6 +296,7 @@
       fill: currentColor;
     }
 
+    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 3rem 2rem 2rem;
@@ -257,6 +323,7 @@
 </head>
 <body>
 
+  <!-- ── HERO VIDEO ── -->
   <div class="hero">
     <div class="hero-video-wrap">
       <iframe
@@ -273,32 +340,43 @@
     </div>
   </div>
 
+  <!-- ── UKA ALBUM ── -->
+  <div class="album-section">
+    <span class="album-tag">new album out now</span>
+    <a class="album-title-link" href="https://umikokotori.bandcamp.com/album/uka" target="_blank" rel="noopener">
+      <span class="album-title">UKA</span>
+    </a>
+  </div>
+
+  <a class="album-cover-link" href="https://umikokotori.bandcamp.com/album/uka" target="_blank" rel="noopener">
+    <img src="uka - cover.png" alt="UKA — UMIKO kotori" />
+  </a>
+
+  <div class="divider"></div>
+
+  <!-- ── SINGLES ── -->
   <section>
     <p class="section-label">Singles</p>
     <div class="singles-grid">
 
-      <!-- GRUNGY — newest first -->
       <a class="single-card" href="https://umikokotori.bandcamp.com/track/grungy" target="_blank" rel="noopener">
         <img src="grungy - cover.png" alt="GRUNGY" />
-        <span class="single-tag">New Single</span>
+        <span class="single-tag">Single</span>
         <span class="single-title">GRUNGY</span>
       </a>
 
-      <!-- JUNGLY -->
       <a class="single-card" href="https://umikokotori.bandcamp.com/track/jungly" target="_blank" rel="noopener">
         <img src="jungly - cover.png" alt="JUNGLY" />
         <span class="single-tag">Single</span>
         <span class="single-title">JUNGLY</span>
       </a>
 
-      <!-- SWEETY -->
       <a class="single-card" href="https://umikokotori.bandcamp.com/track/sweety" target="_blank" rel="noopener">
         <img src="sweety - cover.png" alt="SWEETY" />
         <span class="single-tag">Single</span>
         <span class="single-title">SWEETY</span>
       </a>
 
-      <!-- POLITE -->
       <a class="single-card" href="https://umikokotori.bandcamp.com/track/polite" target="_blank" rel="noopener">
         <img src="polite - cover.png" alt="POLITE" />
         <span class="single-tag">Single</span>
@@ -310,6 +388,7 @@
 
   <div class="divider"></div>
 
+  <!-- ── SOCIALS ── -->
   <div class="socials-section">
     <a class="socials-label" href="https://umikokotori.substack.com" target="_blank" rel="noopener">signal / body / noise</a>
     <div class="social-icons">
@@ -357,6 +436,7 @@
     </div>
   </div>
 
+  <!-- ── FOOTER ── -->
   <footer>
     <img src="logo.png" alt="UMIKO kotori" />
     <p>&copy; 2026 UMIKO kotori</p>
